@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+body{
+    background-color: #EAFFD6;
+}
+
+.container{
+    display: flex;
+    background-color: #81D97F;
+    border-radius: 35.56px;
+    align-items: center;
+    justify-content: center;
+    padding: 100px;
+    height: 200px;
+    width: 450px;
+    margin-top: 150px;
+    margin-left: 380px;
+    font-family: "Inter", sans-serif;;
+}
+
+.bemVindo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+
+}
+
+.input{
+    margin: 10px;
+    border-radius: 8.89px;
+    padding-right: 30px;
+    padding-top: 7px;
+    text-decoration: none;
+    border: none;
+    font-family: "Inter", sans-serif;
+    
+}
+
+.button {
+    font-family: "Inter", sans-serif;
+    border-radius: 8.89px;
+    border: solid black 3px;
+    padding-right: 30px;
+    padding-top: 7px;
+    text-align: center;
+    background-color: white; 
+    color: black; 
+}
+
+.button:hover {
+    background-color: black;
+    border: solid white 3px;
+    color: white; 
+}
