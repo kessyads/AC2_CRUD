@@ -7,20 +7,18 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <section class="container">
         <div class="bemVindo">
-            <h2>Bem-vindo! </h2>
-
+            <h2>Bem-vindo!</h2>
             <p>Registre-se com seus dados pessoais</p>
-
-            <button class="button">CADASTRAR</button>
+            <a href="cadastrarUsuario.html"><button class="button">CADASTRAR</button></a>
         </div>
         <div class="formulario">
             <h2>Entrar</h2>
-            <input class="input" type="text" name="" placeholder="Usuario" id="usuario">
-            <input class="input" type="password" name="" placeholder="Senha" id="password">
-            <button class="button">ENTRAR</button>
+            <input class="input" type="text" placeholder="Usuário" id="usuario">
+            <input class="input" type="password" placeholder="Senha" id="senha">
+            <button class="button" id="loginButton">ENTRAR</button>
+            <p id="loginError" class="error"></p>
         </div>
     </section>
     <script src="main.js"></script>
