@@ -1,4 +1,5 @@
 const apiBaseURL = 'https://663c040117145c4d8c34f855.mockapi.io/AC2__Usuario';
+
 document.addEventListener("DOMContentLoaded", () => {
     const loginButton = document.getElementById('loginButton');
     const cadastrarButton = document.getElementById('cadastrarButton');
@@ -15,21 +16,23 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             try {
-                const response = await fetch(`${apiBaseURL}?usuario=${usuario}`);
+                const response = await fetch(`${apiBaseURL}`);
                 const users = await response.json();
+                
+                console.log('Dados recebidos da API:', users);
 
-                if (users.length === 0) {
+                const user = users.find(u => u.usuario === usuario);
+
+                if (!user) {
                     document.getElementById('loginError').innerText = 'Usuário não encontrado.';
+                } else if (user.senha === senha) {
+                    localStorage.setItem('usuario', JSON.stringify(user));
+                    window.location.href = 'parabens.html';
                 } else {
-                    const user = users[0];
-                    if (user.senha === senha) {
-                        localStorage.setItem('usuario', JSON.stringify(user));
-                        window.location.href = 'parabens.html';
-                    } else {
-                        document.getElementById('loginError').innerText = 'Usuário ou senha inválidos.';
-                    }
+                    document.getElementById('loginError').innerText = 'Usuário ou senha inválidos.';
                 }
             } catch (error) {
+                console.error('Erro ao conectar ao servidor:', error);
                 document.getElementById('loginError').innerText = 'Erro ao conectar ao servidor.';
             }
         });
@@ -62,9 +65,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (response.ok) {
                     window.location.href = 'index.html';
                 } else {
+                    console.error('Erro ao cadastrar usuário:', response.statusText);
                     document.getElementById('cadastroError').innerText = 'Erro ao cadastrar usuário.';
                 }
             } catch (error) {
+                console.error('Erro ao conectar ao servidor:', error);
                 document.getElementById('cadastroError').innerText = 'Erro ao conectar ao servidor.';
             }
         });
